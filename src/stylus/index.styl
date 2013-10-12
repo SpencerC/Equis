@@ -21,9 +21,6 @@ body
     margin 0px
     color white
 
-.equation
-  font-size 50px
-
 #bars
   max-width 650px
   width 100%
@@ -32,17 +29,27 @@ body
 .bar
   background-color gray
   height 10px
-  margin 0 5px 20px 5px
+  margin 10px 5px
   display inline-block
   &:hover 
     background-color black
 
+.levelBtn
+  padding 5px
+
 .desc
-  margin-top 25px
+  margin-top 10px
 
 .info 
   border-left 5px solid black
   padding-left 10px
 
-.highlight 
-  background-color yellow;
+.math
+  font-size 50px
+  cursor default
+  .point-to 
+    color red
+
+  .clickable
+    color blue
+    cursor pointer

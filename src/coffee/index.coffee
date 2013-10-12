@@ -1,5 +1,6 @@
 data = undefined
 num = undefined
+currentLevel = 1
 
 $(document).ready ->
   rootRef = new Firebase("http://equis1414.firebaseio.com/" + $("#parameter").val())
@@ -10,15 +11,37 @@ $(document).ready ->
     $('#description').text(data.description)
     $('#theEq').html(data.TeX)
     MathJax.Hub.Typeset ->
+      terms = $(".math [class*='level-']")
+      terms.attr "data-toggle", "popover"
+      terms.attr "data-placement", "bottom"
+      terms.attr "data-trigger", "manual"
+      terms.attr "data-container", ".equation"
+
+      $(document).on "mouseup", ->
+        terms.popover "destroy"
+        return
+
+      terms.on "mouseover", ->
+        if $(this).hasClass("level-" + currentLevel)
+          $(this).addClass("clickable")
+          $(this).on "mouseup", (event) ->
+            terms.popover "destroy"
+            $(this).attr "data-content", data.metadata[this.id]
+            $("#" + this.id).popover "show"
+            event.stopPropagation()
+          return
+        return
+
+      $(".math [class*='level-']").on "mouseout", ->
+        $(this).unbind("mouseup")
+        if $(this).hasClass("level-" + currentLevel)
+          $(this).removeClass("clickable")
+        return
       drawBars()
       return
       
     $('.levelBtn').on "mouseup", ->
-      for i in [1..5]
-        $(".level-" + i).unbind()
-      $(".level-" + $(this).data("int")).on "mouseup", ->
-        console.log data.metadata[this.id]
-        return
+      currentLevel = +$(this).data("level")
       return
     return
   return
@@ -36,6 +59,13 @@ drawBars = ->
       return
     current.children(".bar").width(current.width() / $(".level-" + i).length - 10)
   $('.bar').unbind()
+
   $('.bar').on "mouseover", ->
-    console.log $(this).data "rel"
+    $("#" + $(this).data("rel")).addClass "point-to"
     return
+
+  $('.bar').on "mouseout", ->
+    $(".point-to").removeClass "point-to"
+    return
+
+  return
