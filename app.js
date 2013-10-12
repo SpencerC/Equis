@@ -24,7 +24,7 @@ app.get('/eqs/:id', function(req, res) {
   res.render('index.jade', { param: req.params.id } );
 });
 
-var port = env.PORT || 3000;
+var port = process.env.PORT || 3000;
 
 app.listen(port);
 console.log('Started! Its up! Port:' + port);
