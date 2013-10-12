@@ -1,6 +1,14 @@
 extends ../layout
 
 block content
+  .header
+    .container
+      .row
+        .col-lg-3
+          p EQUIS
+        .col-lg-6
+          center
+            h3 Heisenberg's Uncertainty Principle
   .equation
     .title Heisenberg's Uncertainty Principle
     input#parameter(type="hidden")=param
@@ -10,3 +18,32 @@ block content
     .math \[\mathbf{A} = A \mathbf{\hat{e}}_{\bot} \,\!\]
     .math \[\ln(k)= \frac{-E_a}{R}\frac{1}{T} + \ln(A)\]
     .math \[\class{term}{\class{eq_first}{\sigma_{x}}\class{eq_second}{\sigma_{p}}} \geq \frac{\hbar}{2}\]
+    .math \[\sigma_{x}\sigma_{p} \geq \frac{\hbar}{2}\]
+  .bars
+    .container
+      .row
+        .col-lg-6.col-lg-offset-3
+          center
+            .row
+              .col-lg-2.col-lg-offset-1
+                #one.single
+              .col-lg-2
+                .single
+              .col-lg-2
+                .single
+              .col-lg-2
+                .single
+              .col-lg-2
+                .single
+            .row
+              .col-lg-6
+                .single
+              .col-lg-6
+                .single
+  .desp
+    .container
+      .row
+        .col-lg-6.col-lg-offset-3
+          .info
+            p
+              | Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class.

@@ -3,52 +3,41 @@
 *
   -webkit-tap-highlight-color  rgba(0,0,0,0) /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 
+
 body
-  -webkit-touch-callout none                /* prevent callout to copy image, etc when tap to hold */
-  -webkit-text-size-adjust none             /* prevent webkit from resizing text to fit */
-  -webkit-user-select  none                  /* prevent copy paste, to allow, change 'none' to 'text' */
-  background-color #333
-  font-family "Times New Roman", Times, serif
-  font-size 12pt
-  height 100%
-  margin 0
-  padding 0
-  width 100%
-  overflow-x hidden
-  color white
+  font-family 'Open Sans', sans-serif
+  //-webkit-touch-callout none                /* prevent callout to copy image, etc when tap to hold */
+  //-webkit-text-size-adjust none             /* prevent webkit from resizing text to fit */
+  //-webkit-user-select  none                  /* prevent copy paste, to allow, change 'none' to 'text' */
 
-
-h1
-  font-size 24pt
-  font-weight normal
-  margin 0px
-  overflow visible
-  padding 0px
-  text-align center
-
-ul
-  list-style none
-  padding 0
-  margin 0
-
-a
-  text-decoration none
-  color black
-  border none
-  outline none
-
-.graphic
-  background-size contain
-
-.icon
-  width 32px
-  height 32px
-  background-size contain
-  // &:before
-  //   content '<embed id="logo" src="img/logo.svg" type="image/svg+xml">'
-  // &:before g
-  //   display none
+.header
+  background-color black
+  padding 20px 0px 20px 0px
+  p 
+    margin 0px
+    color white
+    margin-top: 4px
+  h3 
+    margin 0px
+    color white
 
 .equation
-  font-size 250%
-  text-shadow 1px 1px 0px black
+  font-size 50px
+
+.single
+  background-color gray
+  height 10px
+  margin-bottom: 20px
+
+.single:hover 
+  background-color:black;
+
+.desp 
+  margin-top 100px
+
+.info 
+  border-left 5px solid black
+  padding-left 10px
+
+.highlight 
+  background-color yellow;

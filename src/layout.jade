@@ -3,19 +3,22 @@ html
   head
     title Equation Gallery
     meta(charset='utf-8')
-    link(rel='stylesheet', type='text/css', href='/css/index.css')
-    script(src='/js/plugins.js')
-    script(type="text/x-mathjax-config")
+    link(rel='stylesheet', type='text/css', href='css/index.css')
+    link(href='css/bootstrap.min.css', rel='stylesheet', media='screen')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+    script(src='js/plugins.js')
+    script(type='text/x-mathjax-config')
       | MathJax.Hub.Config({
-      |   showProcessingMessages: false,
-      |   showMathMenu: false,
-      |   showMathMenuMSIE: false,
-      |   processEscapes: true
+      | showProcessingMessages: false,
+      | showMathMenu: false,
+      | showMathMenuMSIE: false,
+      | processEscapes: true
       | });
     script(type="text/javascript", src="http://codeorigin.jquery.com/jquery-2.0.3.min.js")
     script(type="text/javascript", src="http://d3js.org/d3.v3.min.js")
     script(type="text/javascript", src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full")
     script(type="text/javascript", src="https://cdn.firebase.com/v0/firebase.js")
+    script(src='js/bootstrap.min.js')
   body
     block content
     script(type='text/javascript', src='/js/master.js')
