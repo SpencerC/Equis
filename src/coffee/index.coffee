@@ -4,17 +4,21 @@ $(document).ready ->
   num = undefined
   rootRef.once "value", (s) ->
     console.log s.val()
-    $('#titleEq').text(s.val()[$("#parameter").text()].title)
-    return
-  $('.levelItem').click ->
-    $(".level-5").unbind()
-    $(".level-4").unbind()
-    $(".level-3").unbind()
-    $(".level-2").unbind()
-    $(".level-1").unbind()
-    $(".level-5").click ->
-      console.log @class
-      console.log data[$("#parameter").val()].metadata["+ this.id +"]
+    data = s.val()[$("#parameter").text()]
+    $('#titleEq').text(data.title)
+    $('#description').text(data.description)
+    $('#theEq').html(data.TeX)
+    MathJax.Hub.Typeset()
+    $('.levelBtn').click ->
+      $(".level-5").unbind()
+      $(".level-4").unbind()
+      $(".level-3").unbind()
+      $(".level-2").unbind()
+      $(".level-1").unbind()
+      $(".level-"+$(this).data("int")).click ->
+        console.log @class
+        console.log data.metadata["+ this.id +"]
+        return
       return
     return
   return

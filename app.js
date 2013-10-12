@@ -1,6 +1,5 @@
 var express = require('express')
-  , util = require('util')
-  , Firebase = require('firebase');
+  , util = require('util');
 
 var app = express();
 // configure Express
@@ -22,11 +21,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/eqs/:id', function(req, res) {
-  var ref = new Firebase('http://equis1414.firebaseio.com/'+req.params.id);
-  console.log(req.params.id);
-  ref.once('value', function(s) {
-    res.render('index.jade', { param: req.params.id, TeX: s.val().TeX } );
-  });
+  res.render('index.jade', { param: req.params.id } );
 });
 
 var port = 3000;
