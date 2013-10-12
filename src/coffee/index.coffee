@@ -9,15 +9,14 @@ $(document).ready ->
     $('#description').text(data.description)
     $('#theEq').html(data.TeX)
     MathJax.Hub.Typeset()
-    $('.levelBtn').click ->
+    $('.levelBtn').on "mouseup", ->
       $(".level-5").unbind()
       $(".level-4").unbind()
       $(".level-3").unbind()
       $(".level-2").unbind()
       $(".level-1").unbind()
-      $(".level-"+$(this).data("int")).click ->
-        console.log @class
-        console.log data.metadata["+ this.id +"]
+      $(".level-"+$(this).data("int")).on "mouseup", ->
+        console.log data.metadata[this.id]
         return
       return
     return
