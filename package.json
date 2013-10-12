@@ -5,11 +5,15 @@
   "version": "0.0.1",
   "dependencies": {
     "grunt": "*",
+    "grunt-cli": "*",
     "express": "3.3.x",
     "coffee-script": "1.6.3",
     "jade": "0.28.1",
     "nib": "0.9.1",
     "stylus": "0.32.1"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/.bin/grunt build"
   },
   "devDependencies": {
     "grunt": "*",

@@ -63,4 +63,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-grunticon'
 
-  grunt.registerTask 'default', ['coffee', 'stylus', 'concat', 'concurrent:dev']
+  grunt.registerTask 'build', ['coffee', 'stylus', 'concat']
+  grunt.registerTask 'default', ['build', 'concurrent:dev']
