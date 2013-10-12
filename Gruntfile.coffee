@@ -40,11 +40,27 @@ module.exports = (grunt) ->
       stylusgrunticon:
         files: ['src/stylus/**', 'src/img/icons/**', 'src/img/graphics/**']
         tasks: ['stylus', 'concat']
+    concurrent:
+      dev:
+        tasks: ['nodemon', 'watch']
+        options:
+          logConcurrentOutput: true
+    nodemon:
+      dev:
+        options:
+          file: 'app.js'
+          watchedExtensions: ['jade']
+          watchedFolders: ['src']
+          legacyWatch: true
+
+
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-contrib-stylus'
+  grunt.loadNpmTasks 'grunt-nodemon'
+  grunt.loadNpmTasks 'grunt-concurrent'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-grunticon'
 
-  grunt.registerTask 'default', ['coffee', 'stylus', 'concat', 'watch']
+  grunt.registerTask 'default', ['coffee', 'stylus', 'concat', 'concurrent:dev']

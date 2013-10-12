@@ -1,5 +1,5 @@
 {
-  "name": "EquationGallery",
+  "name": "Equis",
   "description": "A gallery of equations",
   "author": "Spencer Connaughton <spencer@spencerconnaughton.com>",
   "version": "0.0.1",
@@ -17,7 +17,9 @@
     "grunt-contrib-stylus": "*",
     "grunt-contrib-concat": "*",
     "grunt-grunticon": "*",
-    "grunt-contrib-watch": "~0.5.1"
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-nodemon": "~0.1.1",
+    "grunt-concurrent": "~0.4.0"
   },
   "engines": {
     "node": "0.8.x",
