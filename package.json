@@ -12,9 +12,6 @@
     "nib": "0.9.1",
     "stylus": "0.32.1"
   },
-  "scripts": {
-    "postinstall": "./node_modules/.bin/grunt build"
-  },
   "devDependencies": {
     "grunt": "*",
     "grunt-contrib-coffee": "*",
