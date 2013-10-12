@@ -3,6 +3,8 @@ num = undefined
 currentLevel = 1
 
 $(document).ready ->
+  $(".equation").css 
+    opacity: 0.0
   rootRef = new Firebase("http://equis1414.firebaseio.com/" + $("#parameter").val())
   rootRef.once "value", (s) ->
     console.log s.val()
@@ -11,6 +13,8 @@ $(document).ready ->
     $('#description').text(data.description)
     $('#theEq').html(data.TeX)
     MathJax.Hub.Typeset ->
+      $(".equation").css 
+        opacity: 1.0
       terms = $(".math [class*='level-']")
       terms.attr "data-toggle", "popover"
       terms.attr "data-placement", "bottom"
