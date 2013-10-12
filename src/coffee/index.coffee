@@ -4,7 +4,7 @@ $(document).ready ->
   num = undefined
   rootRef.once "value", (s) ->
     console.log s.val()
-    data = s.val()
+    $('#titleEq').text(s.val()[$("#parameter").text()].title)
     return
   $('.levelItem').click ->
     $(".level-5").unbind()
