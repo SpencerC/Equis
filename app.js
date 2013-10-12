@@ -17,7 +17,7 @@ app.configure(function() {
 });
 
 app.get('/', function(req, res){
-  res.render('index.jade', { title: "cool" });
+  res.render('index.jade', { param: "" });
 });
 
 app.get('/eqs/:id', function(req, res) {

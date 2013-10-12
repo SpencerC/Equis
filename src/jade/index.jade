@@ -1,30 +1,29 @@
-extends ../layout
-
-block content
-  p#parameter(style="display:none")=param
-  .header
-    .container
-      .row
-        .col-lg-3
-          p EQUIS
-        .col-lg-6
-          center
-            h3#titleEq Heisenberg's Uncertainty Principle
-  .equation
-    .math#theEq Here the equation goes
-  #bars
-    .container
-      .row
-        .row.levelBtn(data-level="1")
-        .row.levelBtn(data-level="2")
-        .row.levelBtn(data-level="3")
-        .row.levelBtn(data-level="4")
-        .row.levelBtn(data-level="5")
-
-  .desc
-    .container
-      .row
-        .col-lg-6.col-lg-offset-3
-          .info
-            p#description
-              | Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class.
+!!! 5
+html
+  head
+    title Equation Gallery
+    meta(charset='utf-8')
+    link(rel='stylesheet', type='text/css', href='/css/index.css')
+    link(href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css', rel='stylesheet', media='screen')
+    link(href='//fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+    script(src='/js/plugins.js')
+    script(type='text/x-mathjax-config')
+      | MathJax.Hub.Config({
+      | showProcessingMessages: false,
+      | showMathMenu: false,
+      | showMathMenuMSIE: false,
+      | processEscapes: true
+      | });
+    script(type="text/javascript", src="//codeorigin.jquery.com/jquery-2.0.3.min.js")
+    script(type="text/javascript", src="//d3js.org/d3.v3.min.js")
+    script(type="text/javascript", src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full")
+    script(type="text/javascript", src="https://cdn.firebase.com/v0/firebase.js")
+    script(type="text/javascript", src='//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
+  body
+    block content
+    script(type='text/javascript', src='/js/master.js')
+    script(type='text/javascript').
+      var isIndex = true;
+    div.equations
+    script(type='text/javascript').
+      indexInit();

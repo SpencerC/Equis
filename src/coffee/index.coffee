@@ -2,49 +2,58 @@ data = undefined
 num = undefined
 currentLevel = 1
 
-$(document).ready ->
-  rootRef = new Firebase("http://equis1414.firebaseio.com/" + $("#parameter").val())
+indexInit = () ->
+  rootRef = new Firebase("http://equis1414.firebaseio.com/")
   rootRef.once "value", (s) ->
+    data = s.val()
     console.log s.val()
-    data = s.val()[$("#parameter").text()]
-    $('#titleEq').text(data.title)
-    $('#description').text(data.description)
-    $('#theEq').html(data.TeX)
-    MathJax.Hub.Typeset ->
-      terms = $(".math [class*='level-']")
-      terms.attr "data-toggle", "popover"
-      terms.attr "data-placement", "bottom"
-      terms.attr "data-trigger", "manual"
-      terms.attr "data-container", ".equation"
 
-      $(document).on "mouseup", ->
-        terms.popover "destroy"
-        return
+$(document).ready ->
+  if not isIndex
+    rootRef = new Firebase("http://equis1414.firebaseio.com/" + $("#parameter").val())
+    rootRef.once "value", (s) ->
+      console.log s.val()
+      data = s.val()[$("#parameter").text()]
+      $('#titleEq').text(data.title)
+      $('#description').text(data.description)
+      $('#theEq').html(data.TeX)
 
-      terms.on "mouseover", ->
-        if $(this).hasClass("level-" + currentLevel)
-          $(this).addClass("clickable")
-          $(this).on "mouseup", (event) ->
-            terms.popover "destroy"
-            $(this).attr "data-content", data.metadata[this.id]
-            $("#" + this.id).popover "show"
-            event.stopPropagation()
-          return
-        return
-
-      $(".math [class*='level-']").on "mouseout", ->
-        $(this).unbind("mouseup")
-        if $(this).hasClass("level-" + currentLevel)
-          $(this).removeClass("clickable")
-        return
-      drawBars()
-      return
       
-    $('.levelBtn').on "mouseup", ->
-      currentLevel = +$(this).data("level")
+      MathJax.Hub.Typeset ->
+        terms = $(".math [class*='level-']")
+        terms.attr "data-toggle", "popover"
+        terms.attr "data-placement", "bottom"
+        terms.attr "data-trigger", "manual"
+        terms.attr "data-container", ".equation"
+
+        $(document).on "mouseup", ->
+          terms.popover "destroy"
+          return
+
+        terms.on "mouseover", ->
+          if $(this).hasClass("level-" + currentLevel)
+            $(this).addClass("clickable")
+            $(this).on "mouseup", (event) ->
+              terms.popover "destroy"
+              $(this).attr "data-content", data.metadata[this.id]
+              $("#" + this.id).popover "show"
+              event.stopPropagation()
+            return
+          return
+
+        $(".math [class*='level-']").on "mouseout", ->
+          $(this).unbind("mouseup")
+          if $(this).hasClass("level-" + currentLevel)
+            $(this).removeClass("clickable")
+          return
+        drawBars()
+        return
+        
+      $('.levelBtn').on "mouseup", ->
+        currentLevel = +$(this).data("level")
+        return
       return
     return
-  return
 
 $(window).resize ->
   drawBars()
