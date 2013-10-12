@@ -7,13 +7,6 @@ module.exports = (grunt) ->
           bare: true
         files:
           "public/js/master.js": ["src/coffee/*.coffee"]
-    jade:
-      html:
-        files:
-          'public': ['src/jade/*.jade']
-        options:
-          client: false
-          pretty: true
     stylus:
       compile:
         options:
@@ -44,18 +37,14 @@ module.exports = (grunt) ->
       coffee:
         files: 'src/coffee/*.coffee',
         tasks: 'coffee'
-      jade:
-        files: 'src/**/*.jade',
-        tasks: 'jade'
       stylusgrunticon:
         files: ['src/stylus/**', 'src/img/icons/**', 'src/img/graphics/**']
         tasks: ['stylus', 'concat']
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-concat'
-  grunt.loadNpmTasks 'grunt-jade'
   grunt.loadNpmTasks 'grunt-contrib-stylus'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-grunticon'
 
-  grunt.registerTask 'default', ['coffee', 'jade', 'stylus', 'concat', 'watch']
+  grunt.registerTask 'default', ['coffee', 'stylus', 'concat', 'watch']
