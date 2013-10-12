@@ -6,6 +6,11 @@ $(document).ready ->
     console.log s.val()
     $('#titleEq').text(s.val()[$("#parameter").text()].title)
     return
+  $('.levelItem').hover ->
+    $("td").hover (->
+      $(this).addClass "hover"
+    ), ->
+    $(this).removeClass "hover"
   $('.levelItem').click ->
     $(".level-5").unbind()
     $(".level-4").unbind()
