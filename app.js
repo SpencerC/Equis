@@ -20,6 +20,11 @@ app.get('/', function(req, res){
   res.render('index.jade', { title: "cool" });
 });
 
+app.get('/eqs/:id', function(req, res) {
+  console.log(req.params.id);
+  res.render('index.jade', { param: req.params.id } );
+});
+
 var port = 3000;
 
 app.listen(port);
