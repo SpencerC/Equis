@@ -23,7 +23,8 @@ $(document).ready ->
 
       terms.on "mouseover", ->
         if $(this).hasClass("level-" + currentLevel)
-          $(this).addClass("clickable")
+          $(this).addClass "clickable"
+          $(this).parents(".math").addClass "interacting"
           $(this).on "mouseup", (event) ->
             terms.popover "destroy"
             $(this).attr "data-content", data.metadata[this.id]
@@ -35,12 +36,15 @@ $(document).ready ->
       $(".math [class*='level-']").on "mouseout", ->
         $(this).unbind("mouseup")
         if $(this).hasClass("level-" + currentLevel)
+          $(this).parents(".math").removeClass "interacting"
           $(this).removeClass("clickable")
         return
       drawBars()
       return
       
     $('.levelBtn').on "mouseup", ->
+      $('.levelBtn').removeClass "active"
+      $(this).addClass "active"
       currentLevel = +$(this).data("level")
       return
     return

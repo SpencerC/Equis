@@ -27,15 +27,21 @@ body
   margin 0 auto
 
 .bar
-  background-color gray
+  background-color #CCC
   height 10px
   margin 10px 5px
   display inline-block
+  box-shadow inset 1px 1px 1px 1px rgba(0,0,0,0.5)
   &:hover 
     background-color black
 
 .levelBtn
   padding 5px
+  &.active .bar
+    background-color #444
+    box-shadow none
+    &:hover
+      background-color black
 
 .desc
   margin-top 10px
@@ -47,9 +53,11 @@ body
 .math
   font-size 50px
   cursor default
+  &.interacting
+    color grey
   .point-to 
-    color red
+    color #E00
 
   .clickable
-    color blue
+    color black
     cursor pointer
