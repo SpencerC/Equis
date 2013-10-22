@@ -4,9 +4,6 @@ var express = require('express')
 var app = express();
 // configure Express
 app.configure(function() {
-  app.set('views', __dirname + '/src/jade');
-  app.set('view engine', 'jade');
-  app.use(express.static(__dirname + '/public'));
   app.use(express.logger());
   app.use(express.cookieParser());
   app.use(express.bodyParser());
@@ -16,12 +13,12 @@ app.configure(function() {
   app.enable("jsonp callback");
 });
 
-app.get('/', function(req, res){
-  res.redirect('/eqs/4242424242');
+app.get('/eqs/:id', function(req, res){
+  
 });
 
-app.get('/eqs/:id', function(req, res) {
-  res.render('index.jade', { param: req.params.id } );
+app.get('/', function(req, res){
+  res.redirect('/eqs/4242424242');
 });
 
 var port = process.env.PORT || 3000;
